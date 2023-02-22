@@ -1,6 +1,6 @@
 # foodmark_app
 
-A new Flutter project.
+お気に入りの店をブックマークできるアプリ
 
 ## Getting Started
 
