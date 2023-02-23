@@ -14,6 +14,10 @@ class _AddShopPageState extends State<AddShopPage> {
   final _shopNameController = TextEditingController();
   final _shopImageController = TextEditingController();
   final _shopRatingController = TextEditingController();
+  final _shopGenreController = TextEditingController();
+  final _shopStationController = TextEditingController();
+  final _shopDescriptionController = TextEditingController();
+  final _shopURLController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
 
   @override
@@ -21,6 +25,10 @@ class _AddShopPageState extends State<AddShopPage> {
     _shopNameController.dispose();
     _shopImageController.dispose();
     _shopRatingController.dispose();
+    _shopGenreController.dispose();
+    _shopStationController.dispose();
+    _shopDescriptionController.dispose();
+    _shopURLController.dispose();
     super.dispose();
   }
 
@@ -53,6 +61,30 @@ class _AddShopPageState extends State<AddShopPage> {
                 keyboardType: TextInputType.number,
                 decoration: const InputDecoration(
                   labelText: 'Rating (enter a number)',
+                ),
+              ),
+              TextFormField(
+                controller: _shopGenreController,
+                decoration: const InputDecoration(
+                  labelText: 'Genre',
+                ),
+              ),
+              TextFormField(
+                controller: _shopStationController,
+                decoration: const InputDecoration(
+                  labelText: 'Nearest Station',
+                ),
+              ),
+              TextFormField(
+                controller: _shopDescriptionController,
+                decoration: const InputDecoration(
+                  labelText: 'Description',
+                ),
+              ),
+              TextFormField(
+                controller: _shopURLController,
+                decoration: const InputDecoration(
+                  labelText: 'Shop URL',
                 ),
               ),
               const Spacer(),

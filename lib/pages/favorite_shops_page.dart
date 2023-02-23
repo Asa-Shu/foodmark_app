@@ -32,7 +32,7 @@ class _FavoriteShopsPageState extends State<FavoriteShopsPage> {
     Navigator.push(
       context,
       // MaterialPageRouteクラスのbuilderプロパティには、遷移先のページのビルド方法を指定するコールバック関数が指定されています
-      MaterialPageRoute(builder: (context) => ShopDetailsPage(name: shop.name)),
+      MaterialPageRoute(builder: (context) => ShopDetailsPage(shop: shop)),
     );
   }
 
