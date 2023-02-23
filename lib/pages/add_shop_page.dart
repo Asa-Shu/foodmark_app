@@ -47,8 +47,15 @@ class _AddShopPageState extends State<AddShopPage> {
               TextFormField(
                 controller: _shopNameController,
                 decoration: const InputDecoration(
-                  labelText: 'Name',
+                  labelText: '*Name',
                 ),
+                validator: (value) {
+                  // value がnullでなく、かつ value が空文字列の場合
+                  if (value!.isEmpty) {
+                    return 'Please enter shop name';
+                  }
+                  return null;
+                },
               ),
               TextFormField(
                 controller: _shopImageController,
@@ -62,6 +69,14 @@ class _AddShopPageState extends State<AddShopPage> {
                 decoration: const InputDecoration(
                   labelText: 'Rating (enter a number)',
                 ),
+                validator: (value) {
+                  if (value!.isNotEmpty) {
+                    if (double.tryParse(value) == null) {
+                      return 'Please enter a valid number';
+                    }
+                  }
+                  return null;
+                },
               ),
               TextFormField(
                 controller: _shopGenreController,
@@ -94,10 +109,17 @@ class _AddShopPageState extends State<AddShopPage> {
                   ElevatedButton(
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
+                        double? rating = _shopRatingController.text.isNotEmpty
+                            ? double.parse(_shopRatingController.text)
+                            : null;
                         final shop = Shop(
                           name: _shopNameController.text,
                           image: _shopImageController.text,
-                          rating: double.parse(_shopRatingController.text),
+                          rating: rating,
+                          genre: _shopGenreController.text,
+                          station: _shopStationController.text,
+                          description: _shopDescriptionController.text,
+                          url: _shopURLController.text,
                         );
                         widget.onShopAdded(shop);
                         Navigator.of(context).pop();

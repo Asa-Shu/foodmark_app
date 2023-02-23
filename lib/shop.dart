@@ -1,7 +1,7 @@
 class Shop {
   final String name;
-  final String image;
-  double rating; // int型プロパティに初期値を設定しない場合0が設定される
+  final String image;  // Image.networkにnullは渡せないから?はダメ
+  final double? rating;
   final String? genre;
   final String? station;
   final String? description;
@@ -9,8 +9,8 @@ class Shop {
 
   Shop({
     required this.name,
-    required this.image,
-    this.rating = 0, // オプションパラメタ, 指定されない場合0を設定する
+    this.image = '',
+    this.rating,  // 最初nullになる
     this.genre,
     this.station,
     this.description,

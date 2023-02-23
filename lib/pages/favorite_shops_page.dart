@@ -12,20 +12,15 @@ class FavoriteShopsPage extends StatefulWidget {
 class _FavoriteShopsPageState extends State<FavoriteShopsPage> {
   List<Shop> _favoriteShops = [
     Shop(
-      name: 'Starbucks', // shop.nameでアクセス可能
-      rating: 4.5,
-      image: '',
-    ),
-    Shop(
-      name: 'McDonald\'s',
-      rating: 3.9,
-      image: '',
-    ),
-    Shop(
-      name: 'KFC',
-      rating: 4.2,
-      image: '',
-    ),
+      name: 'ファミマ',
+      rating: 4.4,
+      image:
+          'https://joinus-terrace.com/img/joinusfmg/store/storage/w670xh670/cname_20181029135326.jpg',
+      genre: 'コンビニ',
+      station: '新宿',
+      description: '美味しい食品がたくさんある',
+      url: 'https://www.family.co.jp/',
+    )
   ];
 
   void _navigateToShopDetailsPage(Shop shop) {
@@ -86,7 +81,6 @@ class _FavoriteShopsPageState extends State<FavoriteShopsPage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _navigateToAddShopPage,
-        // Iconウィジェット, 引数に Icons クラスで定義されているアイコン名を指定する, ここではaddアイコンを利用
         child: Icon(Icons.add),
       ),
     );
