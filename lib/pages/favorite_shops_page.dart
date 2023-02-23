@@ -12,7 +12,7 @@ class FavoriteShopsPage extends StatefulWidget {
 class _FavoriteShopsPageState extends State<FavoriteShopsPage> {
   List<Shop> _favoriteShops = [
     Shop(
-      name: 'ファミマ',
+      name: 'ファミリーマート',
       rating: 4.4,
       image:
           'https://joinus-terrace.com/img/joinusfmg/store/storage/w670xh670/cname_20181029135326.jpg',
@@ -20,6 +20,16 @@ class _FavoriteShopsPageState extends State<FavoriteShopsPage> {
       station: '新宿',
       description: '美味しい食品がたくさんある',
       url: 'https://www.family.co.jp/',
+    ),
+    Shop(
+      name: 'マクドナルド',
+      rating: 3.0,
+      image:
+          'https://play-lh.googleusercontent.com/_GjSl-Pvj6nTpNMHOg-VJnLkVRJFzPFuKirDWcvSOBExGCSa4a1kZ5hxjwjRz2FtSS8t',
+      genre: 'ファーストフード',
+      station: '渋谷',
+      description: 'ちょっと価格高くなってきてる',
+      url: 'https://www.mcdonalds.co.jp/',
     )
   ];
 
@@ -70,7 +80,13 @@ class _FavoriteShopsPageState extends State<FavoriteShopsPage> {
               },
             ),
             title: Text(shop.name),
-            subtitle: Text('★${shop.rating}'),
+            subtitle: Row(
+              children: [
+                Icon(Icons.star, color: Color.fromARGB(255, 255, 59, 59)),
+                SizedBox(width: 5),
+                Text('${shop.rating}', style: TextStyle(fontSize: 20)),
+              ],
+            ),
             onTap: () => _navigateToShopDetailsPage(shop),
             trailing: IconButton(
               icon: Icon(Icons.delete),

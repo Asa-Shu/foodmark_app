@@ -39,7 +39,7 @@ class ShopDetailsPage extends StatelessWidget {
                 SizedBox(height: 8.0),
                 Row(
                   children: [
-                    Icon(Icons.star, color: Colors.yellow),
+                    Icon(Icons.star, color: Color.fromARGB(255, 255, 59, 59)),
                     SizedBox(width: 4.0),
                     Text('${shop.rating}', style: TextStyle(fontSize: 18.0)),
                     SizedBox(width: 8.0),
